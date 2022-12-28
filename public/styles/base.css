@@ -1,0 +1,105 @@
+body {
+    text-align: center;
+    padding: 100px 10%;
+}
+
+footer > h6 {
+    color: gray;
+}
+
+main h2 {
+    color: purple;    
+}
+
+main h4 {
+    color: darkcyan;
+}
+
+main div {
+    padding-bottom: 75px;
+}
+
+#form1,
+#form2,
+#form3{
+    width: 450px;
+    margin: 25px auto;
+    margin-top: 35px;
+    border: 1px solid silver;
+    border-radius: 15px;
+    padding: 15px 60px;
+    padding-bottom: 35px;
+    box-shadow: 10px 20px 30px silver;
+}
+
+#form3{
+    width: 75%;
+}
+
+#form1 .form-group,
+#form2 .form-group,
+#form3 .form-group{
+    margin: 0;
+    padding: 0;
+    margin-top: 10px;
+}
+
+#form1 label,
+#form2 label,
+#form3 label{
+    font-style: italic;
+    display: block;
+    width: auto;
+    float: left;
+    margin-bottom: 0;
+    color: darkcyan;
+}
+
+.control-group{
+    margin-top: 1.5rem !important;
+}
+
+.auth_warning{
+    margin-top: 1.5rem;
+    padding-bottom: 0;
+    color: red;
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 0 20px;
+    background-color: rgb(255, 200, 200);
+}
+
+table,
+th,
+td{
+    border: 1px solid grey;
+}
+
+#table1 {
+    width: 100%;
+    margin-top: 10px;
+}
+
+#table th{
+    font-style: italic;
+    color: grey;
+}
+
+#table th,
+#table td{
+    padding: 5px;
+    text-align: center;
+}
+
+.mini{
+    width: 50%;
+    margin: 10px;
+}
+
+.td-mini{
+    width: 20%;
+}
+
+.my-btn{
+    width: 110px;
+}

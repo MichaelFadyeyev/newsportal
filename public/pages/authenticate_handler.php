@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['reset'])) {
+if (false) {
     unset($_SESSION['login']);
     unset($_SESSION['pass1']);
     unset($_SESSION['message']);

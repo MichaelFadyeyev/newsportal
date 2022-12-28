@@ -13,11 +13,16 @@
         </div>
         <div class="form-group control-group">
             <input type="submit" name="submit" id="submit" class="btn btn-success my-btn" value="Відправити">
-            <input type="submit" name="reset" id="reset" class="btn btn-danger my-btn" value="Очистити">
+            <input type="reset" name="reset" id="reset" class="btn btn-danger my-btn" value="Очистити">
         </div>
         <?php
         if (isset($_SESSION['message'])) {
-            echo '<div class="auth_warning">Користувача з даним логіном / паролем не знайдено</div>';
+            echo '
+            <div class="form-group">
+                <textarea name="msg" id="msg" class="form-control auth-warning" rows="2" disabled>'
+                . $_SESSION['message'] .
+                '</textarea>
+            </div>';
         }
         unset($_SESSION['message']);
         ?>

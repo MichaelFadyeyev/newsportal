@@ -12,6 +12,12 @@
     $pattern2 = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9_]{6,}$/';
     $pattern3 = "/^[a-z0-9!#$%&'*+\\/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+\\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/";
     
+    
+    // 2. Створення екземпляру классу сервісу
+    require('system/services/users_service.php');
+    $service = new UsersService();
+
+    // 3. Перевірка введених даних на помилки
     if (!preg_match($pattern1, $login)) {
         $errors[] = 'Логін не відповідає шаблону безпеки';
     }
@@ -26,19 +32,23 @@
         $errors[] = 'E-Mail не відповідає шаблону безпеки';
     }
 
-    // 2. Створення екземпляру классу сервісу
-    require('system/services/users_service.php');
-    $service = new UsersService();
+    if (!$service->check_login_unique($login)){
+        $errors[] = 'Логін вже використовується';
+    }
 
-    // 3. Підсумковий аналіз даних
+    if (!$service->check_email_unique($email)){
+        $errors[] = 'E-Mail вже використовується';
+    }
+
+    // 4. Підсумковий аналіз даних
     if (count($errors) > 0) {
-        echo '<h5 style=color: "red">';
+        echo '<h5 style="color: red">';
         foreach ($errors as $err) {
             echo $err . '<br>';
         }
         echo '</h5>';
     } else {
-        // 4. Сценарій реєстрції користувача
+        // 5. Сценарій реєстрції користувача
         try {
             $passw = md5($pass1);
             $regdate = date('Y-m-d H:i:s');

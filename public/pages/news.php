@@ -30,10 +30,10 @@ $news = $service->get_news();
                     <td><?= $row['publish'] ?></td>
                     <td><?= $row['source'] ?></td>
                     <td>
-                        <a href="" class="btn btn-sm btn-primary">Деталі</a>
-                        <?php if ($this->user === 'Superuser') : ?>
-                            <a href="" class="btn btn-sm btn-success">Змінити</a>
-                            <a href="" class="btn btn-sm btn-danger">Видалити</a>
+                        <a href="" class="btn btn-sm btn-primary my-btn-sm">Деталі</a>
+                        <?php if ($this->user['role_id'] == 1) : ?>
+                            <a href="" class="btn btn-sm btn-success my-btn-sm">Змінити</a>
+                            <a href="" class="btn btn-sm btn-danger my-btn-sm">Видалити</a>
                         <?php endif; ?>
                     </td>
                 </tr>

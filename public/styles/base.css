@@ -59,7 +59,7 @@ main div {
     margin-top: 1.5rem !important;
 }
 
-.auth_warning{
+.auth-warning{
     margin-top: 1.5rem;
     padding-bottom: 0;
     color: red;
@@ -102,4 +102,11 @@ td{
 
 .my-btn{
     width: 110px;
+}
+
+.my-btn-sm{
+    width: 60px;
+    margin: 2px 0;
+    padding: 2px 4px;
+    font-size: 10px;
 }

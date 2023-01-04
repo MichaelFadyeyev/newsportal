@@ -17,12 +17,12 @@
         </div>
         <?php
         if (isset($_SESSION['message'])) {
-            echo '<div class="auth_warning">Користувача з даним логіном / паролем не знайдено</div>';
+            echo '<div class="auth-warning">Користувача з даним логіном / паролем не знайдено</div>';
         }
         unset($_SESSION['message']);
         ?>
     </form>
     <!--  -->
-    <small style="color: silver">Superuser 4SuperuseR2</small>
+    <small style="color: silver">Superuser2 4SuperuseR23</small>
     <!--  -->
 </div>

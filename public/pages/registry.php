@@ -17,11 +17,11 @@
             <span id="pass2_err" class="error text-danger"></span>
         </div>
         <div class="form-group">
-            <label for="email">Підтвердження пароль</label>
+            <label for="email">E-Mail</label>
             <input type="email" name="email" id="email" class="form-control" requared>
             <span id="email_err" class="error text-danger"></span>
         </div>
-        <div class="form-group">
+        <div class="form-group control-group">
             <input type="submit" name="submit" id="submit" class="btn btn-success my-btn" value="Відправити">
             <input type="reset" name="reset" id="reset" class="btn btn-danger my-btn" value="Очистити">
         </div>

@@ -21,12 +21,12 @@
                     <a class="nav-link" href="index.php?id=#" style="margin-right: 100px">
                         Вітаємо Вас,
                         <span style="color: lime">
-                            <?= $this->user ?>
+                            <?php print_r($this->user['login']) ?>
                         </span>
                         !
                     </a>
                 </li>
-                <?php if ($this->user === 'Гість') { ?>
+                <?php if ($this->user['login'] === 'Гість') { ?>
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?id=entry">Вхід</a>
                     </li>

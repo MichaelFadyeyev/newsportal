@@ -5,7 +5,7 @@ class Page
 {
 
     public $id;
-    public $user;
+    public $user=[];
     public $title;
     public $layout;
     public $content;
@@ -31,10 +31,10 @@ class Page
 
     private function define_user()
     {
-        if (!isset($_SESSION['user'])) return 'Гість';
+        if (!isset($_SESSION['user'])) {
+            return array('login' => 'Гість', 'role_id' => 3);
+        }
         return $_SESSION['user'];
-        // -- Stub for Superuser --
-        // return 'Superuser';
     }
 
     public function load()

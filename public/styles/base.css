@@ -75,9 +75,31 @@ td{
     border: 1px solid grey;
 }
 
-#table1 {
+#table1,
+#table2 {
     width: 100%;
     margin-top: 10px;
+}
+
+#table2 td:not(.td-mini){
+    padding: 0.5rem;
+    vertical-align: top;
+}
+
+#table2 td:not(.td-mini, .td-details){
+    text-align: left;    
+}
+
+#table2 strong::after{
+    content: ":";
+}
+
+#table2 p{
+    margin: 0;
+}
+
+.td-details{
+    text-align: justify;
 }
 
 #table th{
@@ -110,3 +132,4 @@ td{
     padding: 2px 4px;
     font-size: 10px;
 }
+

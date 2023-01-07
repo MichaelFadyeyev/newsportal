@@ -16,26 +16,47 @@ class NewsService extends DbProvider
         }
     }
 
-    public function get_news(){
+    public function get_news()
+    {
         $news = [];
         $query = 'select * from news order by id';
         $result = $this->_conn->query($query);
 
-        if(!$result){
+        if (!$result) {
             throw new Exception('Помилка виконання SQL-запиту на отримання новини');
-        }elseif($result->num_rows > 0){
-            while($row = $result->fetch_assoc()){
+        } elseif ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
                 $news[] = $row;
             }
         }
         return $news;
     }
 
-    public function edit_news(){
+    public function get_news_details($id)
+    {
+        $query = 'select * from news where id = ?';
+        //
+        $stmt = $this->_conn->prepare($query);
+        $stmt->bind_param('i', $id);
+        if (!$stmt->execute()) {
+            throw new Exception('Помилка виводу');
+        }
+        $stmt->execute();
+        $news = $stmt->get_result()->fetch_assoc();
+        if (isset($news)) {
+            $stmt->close();
+            return $news;
+        }
 
+        $stmt->close();
+        return false;
     }
 
-    public function delete_news(){
-        
+    public function edit_news()
+    {
+    }
+
+    public function delete_news()
+    {
     }
 }

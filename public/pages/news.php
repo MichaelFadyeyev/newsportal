@@ -6,7 +6,7 @@ $news = $service->get_news();
 
 <div>
     <h2>Новини</h2>
-    <?php if ($this->user === 'Superuser') : ?>
+    <?php if ($this->user['role_id'] == 1) : ?>
         <a href="index.php?id=news_add">Додати новину</a>
     <?php endif; ?>
     <table id="table1">
@@ -32,8 +32,8 @@ $news = $service->get_news();
                     <td>
                         <a href="index.php?id=news_details&news_id=<?=$row['id']?>" class="btn btn-sm btn-primary my-btn-sm">Деталі</a>
                         <?php if ($this->user['role_id'] == 1) : ?>
-                            <a href="" class="btn btn-sm btn-success my-btn-sm">Змінити</a>
-                            <a href="" class="btn btn-sm btn-danger my-btn-sm">Видалити</a>
+                            <a href="index.php?id=news_edit&news_id=<?=$row['id']?>" class="btn btn-sm btn-success my-btn-sm">Змінити</a>
+                            <a href="index.php?id=news_delete&news_id=<?=$row['id']?>" class="btn btn-sm btn-danger my-btn-sm">Видалити</a>
                         <?php endif; ?>
                     </td>
                 </tr>

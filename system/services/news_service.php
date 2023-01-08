@@ -19,7 +19,8 @@ class NewsService extends DbProvider
     public function get_news()
     {
         $news = [];
-        $query = 'select * from news order by id';
+        $query = 'select * from news ';
+        $query .= 'order by id';
         $result = $this->_conn->query($query);
 
         if (!$result) {
@@ -34,8 +35,8 @@ class NewsService extends DbProvider
 
     public function get_news_details($id)
     {
-        $query = 'select * from news where id = ?';
-        //
+        $query = 'select * from news ';
+        $query .= 'where id = ?';
         $stmt = $this->_conn->prepare($query);
         $stmt->bind_param('i', $id);
         if (!$stmt->execute()) {
@@ -52,11 +53,26 @@ class NewsService extends DbProvider
         return false;
     }
 
-    public function edit_news()
+    public function edit_news($id, $title, $about, $details, $photo, $source, $publish)
     {
+        $query = 'update news ';
+        $query .= 'set title=?, about=?, details=?, photo=?, source=?, publish=? ';
+        $query .= 'where id=?';
+        $stmt = $this->_conn->prepare($query);
+        $stmt->bind_param('ssssssi', $title, $about, $details, $photo, $source, $publish, $id);
+        if (!$stmt->execute()) {
+            throw new Exception('Помилка виконання SQL-запиту на редагування новини');
+        }
     }
 
-    public function delete_news()
+    public function delete_news($id)
     {
+        $query = 'delete from news ';
+        $query .= 'where id=?';
+        $stmt = $this->_conn->prepare($query);
+        $stmt->bind_param('i', $id);
+        if (!$stmt->execute()) {
+            throw new Exception('Помилка виконання SQL-запиту на видалення новини');
+        }
     }
 }

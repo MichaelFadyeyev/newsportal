@@ -22,7 +22,7 @@
             <label for="source">Джерело:</label>
             <input type="url" id="source" name="source" class="form-control" required />
         </div>
-        <div class="form-group text-center">
+        <div class="control-group text-center">
             <input type="submit" value="Відправити" class="btn btn-success my-btn">
             <input type="submit" value="Відмінити" class="btn btn-danger my-btn">
         </div>
